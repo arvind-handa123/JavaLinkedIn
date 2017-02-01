@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+	});
+</script>
+
+<meta charset="utf-8" />
+<title>LinkedIn Profiles</title>
+<body>
+	<br>
+	<form action="/" method="GET">
+		<input type="submit" value="Upload new file">
+	</form>
+	<br>
+	<br>
+	<!-- Best profiles based on recommendations -->
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" href="#collapse1"><h3>Top 15
+							based on recommendations</h3></a>
+				</h4>
+			</div>
+			<div id="collapse1" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="container">
+						<p>This table displays the 15 LinkedIn Profiles with more
+							recommendations</p>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Last Name</th>
+									<th>Title</th>
+									<th>Geographic Area</th>
+									<th>Number Of Recommendations</th>
+									<th>Number Of Connections</th>
+									<th>Current Role</th>
+									<th>Industry</th>
+									<th>Country</th>
+									<th>LinkedIn</th>
+								</tr>
+							</thead>
+							<tbody>
+								<th:block
+									th:each="linkedInProfile : ${bestRecommendationsLinkedInProfiles}">
+									<tr>
+										<td th:text="${linkedInProfile.name}"></td>
+										<td th:text="${linkedInProfile.lastName}"></td>
+										<td th:text="${linkedInProfile.title}"></td>
+										<td th:text="${linkedInProfile.geographicArea}"></td>
+										<td th:text="${linkedInProfile.numberOfRecommendations}"></td>
+										<td th:text="${linkedInProfile.numberOfConnections}"></td>
+										<td th:text="${linkedInProfile.currentRole}"></td>
+										<td th:text="${linkedInProfile.industry}"></td>
+										<td th:text="${linkedInProfile.country}"></td>
+										<td><a th:href="${linkedInProfile.publicProfileURL}" th:target="_blank">Open
+												Profile</a></td>
+									</tr>
+								</th:block>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Best profiles based on connections -->
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" href="#collapse2"><h3>Top 15
+							based on connections</h3></a>
+				</h4>
+			</div>
+			<div id="collapse2" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="container">
+						<p>This table displays the 15 LinkedIn Profiles with more
+							connections</p>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Last Name</th>
+									<th>Title</th>
+									<th>Geographic Area</th>
+									<th>Number Of Recommendations</th>
+									<th>Number Of Connections</th>
+									<th>Current Role</th>
+									<th>Industry</th>
+									<th>Country</th>
+									<th>LinkedIn</th>
+								</tr>
+							</thead>
+							<tbody>
+								<th:block
+									th:each="linkedInProfile : ${bestConnectionsLinkedInProfiles}">
+									<tr>
+										<td th:text="${linkedInProfile.name}"></td>
+										<td th:text="${linkedInProfile.lastName}"></td>
+										<td th:text="${linkedInProfile.title}"></td>
+										<td th:text="${linkedInProfile.geographicArea}"></td>
+										<td th:text="${linkedInProfile.numberOfRecommendations}"></td>
+										<td th:text="${linkedInProfile.numberOfConnections}"></td>
+										<td th:text="${linkedInProfile.currentRole}"></td>
+										<td th:text="${linkedInProfile.industry}"></td>
+										<td th:text="${linkedInProfile.country}"></td>
+										<td><a th:href="${linkedInProfile.publicProfileURL}" th:target="_blank">Open
+												Profile</a></td>
+									</tr>
+								</th:block>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Profiles with TN  Possibility-->
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" href="#collapse3"><h3>Profiles
+							with Possibility of TN Visa</h3></a>
+				</h4>
+			</div>
+			<div id="collapse3" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="container">
+						<p>This table displays the profiles from Canadian and Mexican
+							nationalities</p>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Last Name</th>
+									<th>Title</th>
+									<th>Geographic Area</th>
+									<th>Number Of Recommendations</th>
+									<th>Number Of Connections</th>
+									<th>Current Role</th>
+									<th>Industry</th>
+									<th>Country</th>
+									<th>LinkedIn</th>
+								</tr>
+							</thead>
+							<tbody>
+								<th:block
+									th:each="linkedInProfile : ${profilesWithTNPossibility}">
+									<tr>
+										<td th:text="${linkedInProfile.name}"></td>
+										<td th:text="${linkedInProfile.lastName}"></td>
+										<td th:text="${linkedInProfile.title}"></td>
+										<td th:text="${linkedInProfile.geographicArea}"></td>
+										<td th:text="${linkedInProfile.numberOfRecommendations}"></td>
+										<td th:text="${linkedInProfile.numberOfConnections}"></td>
+										<td th:text="${linkedInProfile.currentRole}"></td>
+										<td th:text="${linkedInProfile.industry}"></td>
+										<td th:text="${linkedInProfile.country}"></td>
+										<td><a th:href="${linkedInProfile.publicProfileURL}" th:target="_blank">Open
+												Profile</a></td>
+									</tr>
+								</th:block>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Best profiles based on nationality -->
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" href="#collapse4"><h3>Profiles
+							from Non USA</h3></a>
+				</h4>
+			</div>
+			<div id="collapse4" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="container">
+						<p>This table displays the profiles from non USA</p>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Last Name</th>
+									<th>Title</th>
+									<th>Geographic Area</th>
+									<th>Number Of Recommendations</th>
+									<th>Number Of Connections</th>
+									<th>Current Role</th>
+									<th>Industry</th>
+									<th>Country</th>
+									<th>LinkedIn</th>
+								</tr>
+							</thead>
+							<tbody>
+								<th:block
+									th:each="linkedInProfile : ${bestNatonalityLinkedInProfiles}">
+									<tr>
+										<td th:text="${linkedInProfile.name}"></td>
+										<td th:text="${linkedInProfile.lastName}"></td>
+										<td th:text="${linkedInProfile.title}"></td>
+										<td th:text="${linkedInProfile.geographicArea}"></td>
+										<td th:text="${linkedInProfile.numberOfRecommendations}"></td>
+										<td th:text="${linkedInProfile.numberOfConnections}"></td>
+										<td th:text="${linkedInProfile.currentRole}"></td>
+										<td th:text="${linkedInProfile.industry}"></td>
+										<td th:text="${linkedInProfile.country}"></td>
+										<td><a th:href="${linkedInProfile.publicProfileURL}" th:target="_blank">Open
+												Profile</a></td>
+									</tr>
+								</th:block>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- All Profiles -->
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" href="#collapse5"><h3>All
+							Profiles</h3></a>
+				</h4>
+			</div>
+			<div id="collapse5" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="container">
+						<p>This table displays all the profiles loaded from the file</p>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Last Name</th>
+									<th>Title</th>
+									<th>Geographic Area</th>
+									<th>Number Of Recommendations</th>
+									<th>Number Of Connections</th>
+									<th>Current Role</th>
+									<th>Industry</th>
+									<th>Country</th>
+									<th>LinkedIn</th>
+								</tr>
+							</thead>
+							<tbody>
+								<th:block th:each="linkedInProfile : ${allLinkedInProfiles}">
+									<tr>
+										<td th:text="${linkedInProfile.name}"></td>
+										<td th:text="${linkedInProfile.lastName}"></td>
+										<td th:text="${linkedInProfile.title}"></td>
+										<td th:text="${linkedInProfile.geographicArea}"></td>
+										<td th:text="${linkedInProfile.numberOfRecommendations}"></td>
+										<td th:text="${linkedInProfile.numberOfConnections}"></td>
+										<td th:text="${linkedInProfile.currentRole}"></td>
+										<td th:text="${linkedInProfile.industry}"></td>
+										<td th:text="${linkedInProfile.country}"></td>
+										<td><a th:href="${linkedInProfile.publicProfileURL}" th:target="_blank">Open
+												Profile</a></td>
+									</tr>
+								</th:block>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
